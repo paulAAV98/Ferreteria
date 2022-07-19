@@ -1,0 +1,29 @@
+<button type="button" class="close" aria-label="Close" mat-button mat-dialog-close>
+    <span aria-hidden="true">&times;</span>
+</button>
+<div class="text-center">
+    <p>Ubicacion</p>
+</div>
+<div class="modal-body">
+    <div class="map-container">
+        <div class="map-frame">
+            <div id="map"></div>
+        </div>
+    </div>
+    <div class="text-center">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Numero de cedula" aria-label="Recipient's username"
+                aria-describedby="button-addon2" #txtCedula (keyup.enter)="buscar(txtCedula.value)">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                (click)="buscar(txtCedula.value)">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <br>
+        <small>Usuario a facturar:</small>
+        <b *ngIf="usuario">{{usuario.nombre}} {{usuario.apellido}}</b>
+        <small *ngIf="!usuario">Usuario no existe</small>
+        <br>
+        <button class="btn btn-success mt-2" (click)="hacerPedido()">Hacer pedido</button>
+    </div>
+</div>

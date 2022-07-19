@@ -1,0 +1,14 @@
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div *ngFor="let sucursal of sucursales" class="card">
+        <a *ngIf="sucursal === 'Cuenca'" routerLink="/productos/{{sucursal}}">
+            <img src="https://i.ytimg.com/vi/KPrRQAsB51c/maxresdefault.jpg" class="card-img-top" alt="Cuenca">
+        </a>
+        <a *ngIf="sucursal === 'Guayaquil'" routerLink="/productos/{{sucursal}}">
+            <img src="https://i.ytimg.com/vi/gIHEfZwS06k/maxresdefault.jpg" class="card-img-top" alt="Guayaquil">
+        </a>
+        
+        <div class="card-body">
+            <p class="card-text">{{sucursal}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<button type="button" class="close" aria-label="Close" mat-button mat-dialog-close>
+    <span aria-hidden="true">&times;</span>
+</button>
+<div class="modal-body">
+    <div class="text-center">
+        <form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <img src="./assets/logo.png" alt="" width="48" height="48">
+            <h4 class="h3 mb-1 fw-normal">Pizzeria Don Bosco</h4>
+            <small class="muted-text">Registrar una nueva tarjeta</small>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="txtNombres" placeholder="Nombres"
+                    formControlName="propietario" [class.is-invalid]="isInValid('propietario')"
+                    [class.is-valid]="isValid('propietario')">
+                <label for="txtNombres">Nombres</label>
+            </div>
+            <div class="form-floating mt-2">
+                <input type="text" class="form-control" id="txtNumero" placeholder="4242 4242 4242 4242"
+                    formControlName="numero" [class.is-invalid]="isInValid('numero')"
+                    [class.is-valid]="isValid('numero')">
+                <label for="txtNumero">Numero</label>
+            </div>
+            <div class="form-floating mt-2">
+                <input type="text" class="form-control" id="txtCodigo" placeholder="123" formControlName="codigo"
+                    [class.is-invalid]="isInValid('codigo')" [class.is-valid]="isValid('codigo')">
+                <label for="txtCodigo">Codigo</label>
+            </div>
+            <div class="form-floating mt-2">
+                <input type="text" class="form-control" id="txtFecha" placeholder="Fecha exp" formControlName="fecha"
+                    [class.is-invalid]="isInValid('fecha')" [class.is-valid]="isValid('fecha')">
+                <label for="txtFecha">Fecha exp</label>
+            </div>
+            <div class="mt-3 mb-3">
+            </div>
+            <button class="btn btn-primary" [disabled]="loading" type="submit"><span *ngIf="loading"
+                    class="spinner-border spinner-border-sm"></span>Registrar</button>
+        </form>
+    </div>
+</div>

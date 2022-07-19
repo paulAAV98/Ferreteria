@@ -1,0 +1,36 @@
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Distancia</th>
+            <th scope="col">Tiempo</th>
+            <th scope="col">Costo envio</th>
+            <th scope="col">Productos</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pedido of pedidos">
+            <th scope="row">{{pedido.idPedido}}</th>
+            <th scope="row">{{pedido.distanciaRecorrido}}</th>
+            <th scope="row">{{pedido.tiempoAprox}}</th>
+            <th scope="row">${{pedido.costoEnvio}}</th>
+            <td>
+                <div *ngFor="let detalle of pedido.pedidoDetalle">
+                    <!-- <pre>{{detalle|json}}</pre> -->
+                    <b>{{detalle.descripcion}}</b>
+                    <br>
+                    <b>${{detalle.precioUnitario}} * {{detalle.cantidad}} =
+                        ${{detalle.precioUnitario * detalle.cantidad}}</b>
+                </div>
+            </td>
+            <th scope="row">{{pedido.estado}}</th>
+            <td>
+                <button class="btn btn-danger" *ngIf="pedido.estado === 'RECEPTADO'"
+                    (click)="anular(pedido.idPedido)">Anular</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

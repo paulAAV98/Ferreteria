@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h2 class="modal-title"></h2>
+    <button type="button" class="close" aria-label="Close" mat-button mat-dialog-close>
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<!-- <h2 mat-dialog-title>{{producto.nombre}}</h2> -->
+
+<mat-dialog-content class="mat-typography">
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{producto.urlimage}}" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="small mb-1">Producto Detallado</div>
+                    <h1 class="display-5 fw-bolder">{{producto.nombre}}</h1>
+                    <div class="fs-5 mb-5">
+                        <span>$ {{producto.precio}}</span>
+                    </div>
+                    <p class="lead"><b>Descripcion: </b>{{producto.descripcion}}</p>
+                    <div class="d-flex"> 
+                        <input class="form-control text-center me-3" id="inputQuantity" type="number" [(ngModel)]="cantidad"
+                            style="max-width: 7rem">
+                        <button class="btn btn-outline-dark flex-shrink-0" type="button" (click)="save()">
+                            <i class="bi-cart-fill me-1"></i>
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</mat-dialog-content>
+<!-- <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions> -->

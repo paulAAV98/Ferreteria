@@ -1,0 +1,27 @@
+<button class="btn btn-success mb-2" (click)="add()">
+    <i class="fa fa-fw fa-plus"></i>&nbsp;Agregar
+</button>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Propietario</th>
+            <th scope="col">Numero</th>
+            <th scope="col">Fecha exp</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tarjeta of tarjetas; let i = index">
+            <!-- <pre> {{tarjeta|json}}</pre> -->
+            <th scope="row">{{i+1}}</th>
+            <td>{{tarjeta.nombreTarj}}</td>
+            <td>{{tarjeta.numeroTarjeta|ocultarTarjeta}}</td>
+            <td>{{tarjeta.fechaCa | slice:0:7}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="borrar(tarjeta.idTarjeta)">Eliminar</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

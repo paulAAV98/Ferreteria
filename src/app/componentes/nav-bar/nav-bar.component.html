@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="inicio">
+            <img src="./assets/logo.png" alt="" width="50" height="50"> Pizzeria Don Bosco
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLinkActive]="['active']"
+                        routerLink="inicio">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLinkActive]="['active']" routerLink="sucursales">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLinkActive]="['active']" routerLink="acerca">Acerca de</a>
+                </li>
+            </ul>
+            <div class="d-inline d-flex">
+                <!-- <button class="btn signup-button" [routerLink]="['/user/signup']">{{'btn_signup' |
+                    translate}}</button> -->
+                <button *ngIf="!sesionActiva" class="btn btn-primary" (click)="login()">Iniciar sesion</button>
+                &nbsp;
+                <button *ngIf="!sesionActiva" class="btn btn-secondary" (click)="register()">Registrarse</button>
+            </div>
+            <!-- <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form> -->
+            &nbsp;
+            <div *ngIf="sesionActiva" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" (click)="perfil()">Perfil</a></li>
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" routerLink="tarjetas">Tarjetas</a></li>
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" routerLink="pedidos">Pedidos</a></li>
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" (click)="logout()">Cerrar sesion</a></li>
+                </ul>
+            </div>
+            &nbsp;
+            <a class="btn btn-success" routerLink="/carrito">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </div>
+    </div>
+</nav>
